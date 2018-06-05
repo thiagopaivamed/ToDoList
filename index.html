@@ -6,94 +6,103 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Bulma ToDo List</title>
-
     <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
-    <link type="text/css" rel="stylesheet" href="css/style.min.css">    
+    <link type="text/css" rel="stylesheet" href="css/style.min.css">
 </head>
 
 <body>
 
-    <div class="container botao">
-        <div class="columns">
-            <div class="column is-6">
-                <input type="text" class="input is-small" id="txt"/>
-            </div>
-            <div class="column">
-                <a href="" class="button is-link is-small" id="btnAdicionar">Adicionar Tarefa</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="tabela container has-text-centered">
-        <table class="table is-striped is-hoverable is-narrow is-fullwidth" id="minhatabela">
-            <thead>
-                <tr>
-                    <th class="">Tarefas</th>
-                    <th class="">Excluir</th>
-                </tr>
-
-            </thead>
-            <tbody id="corpoTabela">
-                <tr>
-                    <td>Atividade 1</td>
-                    <td>
-                        <a class="button is-danger is-small" id="btnExcluir" onclick="Excluir(this)">Excluir</a>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>Atividade 2</td>
-                    <td>
-                        <a class="button is-danger is-small" id="btnExcluir" onclick="Excluir(this)">Excluir</a>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>Atividade 3</td>
-                    <td>
-                        <a class="button is-danger is-small" id="btnExcluir" onclick="Excluir(this)">Excluir</a>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>Atividade 4</td>
-                    <td>
-                        <a class="button is-danger is-small" id="btnExcluir" onclick="Excluir(this)">Excluir</a>
-                    </td>
-                </tr>
-            </tbody>
-
-            <tfoot>
-                <tr>
-                    <th class="">Tarefas</th>
-                    <th class="">Excluir</th>
-                </tr>
-            </tfoot>
-        </table>
-    </div>
-
-    <div class="modal">
-        <div class="modal-background"></div>
-        <div class="modal-card">
-            <header class="modal-card-head">
-                <p class="modal-card-title">Nova tarefa</p>
-                <button class="delete" aria-label="close" id="fechar"></button>
-            </header>
-            <section class="modal-card-body">
-                <label class="label">Tarefa</label>
-                <div class="control">
-                    <input class="input" id="tarefa" />
+    <section class="section topo">
+        <div class="container ">
+            <div class="columns">
+                <div class="column is-6">
+                    <input type="text" class="input is-small" id="txt" />
                 </div>
-            </section>
-            <footer class="modal-card-foot">
-                <button class="button is-success confirmar">Salvar</button>
-                <button class="button cancelar">Cancelar</button>
-            </footer>
+                <div class="column">
+                    <a href="" class="button is-link is-small" id="btnAdicionar">Adicionar Tarefa</a>
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
+
+    <section class="section tabela">
+        <div class="container has-text-centered">
+            <table class="table is-striped is-hoverable is-narrow is-fullwidth" id="minhatabela">
+                <thead>
+                    <tr>
+                        <th class="">Tarefas</th>
+                        <th class="">Status</th>
+                        <th class="">Excluir</th>
+                    </tr>
+
+                </thead>
+                <tbody id="corpoTabela">
+                    <tr>
+                        <td>Atividade 1</td>
+                        <td>
+                            <span class="tag is-info">Incompleta</span>
+                        </td>
+                        <td>
+                            <a class="button is-danger is-small" id="btnExcluir" onclick="Excluir(this)">Excluir</a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Atividade 2</td>
+                        <td>
+                            <span class="tag is-info">Incompleta</span>
+                        </td>
+                        <td>
+                            <a class="button is-danger is-small" id="btnExcluir" onclick="Excluir(this)">Excluir</a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Atividade 3</td>
+                        <td>
+                            <span class="tag is-info">Incompleta</span>
+                        </td>
+                        <td>
+                            <a class="button is-danger is-small" id="btnExcluir" onclick="Excluir(this)">Excluir</a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Atividade 4</td>
+                        <td>
+                            <span class="tag is-info">Incompleta</span>
+                        </td>
+                        <td>
+                            <a class="button is-danger is-small" id="btnExcluir" onclick="Excluir(this)">Excluir</a>
+                        </td>
+                    </tr>
+                </tbody>
+
+                <tfoot>
+                    <tr>
+                        <th class="">Tarefas</th>
+                        <th class="">Status</th>
+                        <th class="">Excluir</th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </section>
+
+    <section class="section notificacao is-invisible">
+        <div class="container">
+            <div class="notification is-warning">
+                <button class="delete" onclick="Esconder()"></button>
+                <p>A atividade
+                    <strong id="atividade"></strong> foi
+                    <strong id="acao"></strong>
+                </p>
+            </div>
+        </div>
+    </section>
 
     <script src="js/app.min.js"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>        
+    <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
 </body>
 
 </html>
